@@ -290,13 +290,13 @@ class Bing extends Qi {
     if (this.camp === 0) {
       if (y > 4 && y - this.y === -1 && this.x === x) {
         return true
-      } else if (y <= 4 && y - this.y >= -1 && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) {
+      } else if (y <= 4 && (y - this.y === -1 || y - this.y === 0) && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) {
         return true
       }
     } else if (this.camp === 1) {
       if (y < 5 && y - this.y === 1 && this.x === x) {
         return true
-      } else if (y >= 5 && y - this.y <= 1 && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) {
+      } else if (y >= 5 && (y - this.y === 1 || y - this.y === 0) && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) {
         return true
       }
     }
