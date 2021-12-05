@@ -1,10 +1,10 @@
 class Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    this.ele = ele
+    this.ele = ele  //棋子的dom对象
     this.x = parseInt(ele.getAttribute('x') / 10)
     this.y = parseInt(ele.getAttribute('y') / 10)
-    this.space = space
-    this.camp = camp
+    this.space = space //棋子分布空间数组
+    this.camp = camp //阵营
   }
   /* x,y是以space数组的坐标 */
   /* x，y将要移动位置  */
@@ -19,6 +19,7 @@ class Qi {
     this.y = y
     this.space[x][y] = this
   }
+
   /*
     x,y将要移动位置 
    */
@@ -60,6 +61,7 @@ class Qi {
 class Ju extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '车'
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -95,6 +97,8 @@ class Ju extends Qi {
 class Xiang extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '象'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -138,6 +142,8 @@ class Xiang extends Qi {
 class Ma extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '马'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -162,6 +168,8 @@ class Ma extends Qi {
 class Shi extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '士'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -178,16 +186,17 @@ class Shi extends Qi {
   }
 
 }
+
 class Jiang extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '将'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
     }
-
-
     //判断目标位置是否为士的可移动位置  
     if (this.camp === 0 && x >= 3 && x <= 5 && y >= 7 && y <= 9 && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) { //(3,9) (5,7)
       return true
@@ -199,10 +208,11 @@ class Jiang extends Qi {
 
 }
 
-
 class Pao extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '炮'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -268,6 +278,8 @@ class Bing extends Qi {
 
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
+    this.name = '兵'
+
   }
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
@@ -295,129 +307,212 @@ class Bing extends Qi {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 const qiE = {
   qi: 0,
   0: 'qi',
-  redbing: 1,
-  1: 'redbing',
-  redpao: 2,
-  2: 'redpao',
-  redju: 3,
-  3: 'redju',
-  redma: 4,
-  4: 'redma',
-  redxiang: 5,
-  5: 'redxiang',
-  redshi: 6,
-  6: 'redshi',
-  redjiang: 7,
-  7: 'redjiang',
-  bluebing: 8,
-  8: 'bluebing',
-  bluepao: 9,
-  9: 'bluepao',
-  blueju: 10,
-  10: 'blueju',
-  bluema: 11,
-  11: 'bluema',
-  bluexiang: 12,
-  12: 'bluexiang',
-  blueshi: 13,
-  13: 'blueshi',
-  bluejiang: 14,
-  14: 'bluejiang'
-}
-space = [
-  [qiE.blueju, qiE.bluema, qiE.bluexiang, qiE.blueshi, qiE.bluejiang, qiE.blueshi, qiE.bluexiang, qiE.bluema, qiE.blueju],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, qiE.bluepao, 0, 0, 0, 0, 0, qiE.bluepao, 0],
-  [qiE.bluebing, 0, qiE.bluebing, 0, qiE.bluebing, 0, qiE.bluebing, 0, qiE.bluebing],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [qiE.redbing, 0, qiE.redbing, 0, qiE.redbing, 0, qiE.redbing, 0, qiE.redbing],
-  [0, qiE.redpao, 0, 0, 0, 0, 0, qiE.redpao, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [qiE.redju, qiE.redma, qiE.redxiang, qiE.redshi, qiE.redjiang, qiE.redshi, qiE.redxiang, qiE.redma, qiE.redju]
-]
-const spaceQi = new Array(9)
-for (let i = 0; i < spaceQi.length; i++) {
-  spaceQi[i] = new Array(9).fill(0)
+  'red-bing': 1,
+  1: 'red-bing',
+  'red-pao': 2,
+  2: 'red-pao',
+  'red-ju': 3,
+  3: 'red-ju',
+  'red-ma': 4,
+  4: 'red-ma',
+  'red-xiang': 5,
+  5: 'red-xiang',
+  'red-shi': 6,
+  6: 'red-shi',
+  'red-jiang': 7,
+  7: 'red-jiang',
+  'blue-bing': 8,
+  8: 'blue-bing',
+  'blue-pao': 9,
+  9: 'blue-pao',
+  'blue-ju': 10,
+  10: 'blue-ju',
+  'blue-ma': 11,
+  11: 'blue-ma',
+  'blue-xiang': 12,
+  12: 'blue-xiang',
+  'blue-shi': 13,
+  13: 'blue-shi',
+  'blue-jiang': 14,
+  14: 'blue-jiang'
 }
 
-const game = document.getElementsByClassName('game')[0]
-/* for (let i = 0; i < 9; i++) {
-  for (let j = 0; j < 10; j++) {
-    let qizi = document.createElement('image')
-    qizi.setAttribute('x', i * 10)
-    qizi.setAttribute('y', j * 10)
-    qizi.setAttribute('width', 10)
-    qizi.setAttribute('height', 10)
-
-    qizi.setAttribute('opacity', 0)
-    qizi.setAttribute('class', 'qi')
-    game.insertAdjacentElement('afterbegin', qizi)
-
-  }
-} */
-
-const qiAll = Array.from(document.getElementsByClassName('qi'))
-let current = null
-qiAll.forEach((ele) => {
-  if (ele.classList.toString() !== 'qi') {
-    const x = ele.getAttribute('x') / 10
-    const y = ele.getAttribute('y') / 10
-
-    if (x == 0 & y == 3) {
-      spaceQi[x][y] = new Bing(ele, spaceQi, 1)
-      allx = spaceQi[x][y]
-    } else if (x == 1 & y == 9) {
-      spaceQi[x][y] = new Ju(ele, spaceQi, 0)
-    } else {
-      spaceQi[x][y] = new Ju(ele, spaceQi, 1)
-
+class GameCtr {
+  constructor() {
+    this.msgEle = document.getElementById('msg')
+    this.qiAll = Array.from(document.getElementsByClassName('qi'))
+    this.currentQi = null // 当前操作棋子对象 
+    this.currentCamp = 0 // camp阵营 红色为0  黑色为1  当前操作阵营
+    this.space = new Array(9) //棋子空间数组
+    for (let i = 0; i < this.space.length; i++) {
+      this.space[i] = new Array(9).fill(0)
     }
-    ele.addEventListener('click', () => {
-      qiAll.forEach((el) => {
-        el.classList.remove('selected')
-      })
-      if (current === ele) {
-        ele.classList.remove('selected')
-        current = null
-      } else {
-        current = ele
-        ele.classList.add('selected')
-      }
-    })
-  } else {
-    ele.addEventListener('click', (e) => {
-      if (current) {
-        console.log(e.target);
-        current.setAttribute('x', e.target.getAttribute('x'))
-        current.setAttribute('y', e.target.getAttribute('y'))
-        current.classList.remove('selected')
-        current = null
-      }
-    })
-    ele.addEventListener('mouseenter', () => {
-      ele.setAttribute('opacity', 0.5)
-    })
-    ele.addEventListener('mouseleave', () => {
-      ele.setAttribute('opacity', 0)
-    })
+    //初始期盼布局
+    this.fixedSpace = [
+      [qiE['blue-ju'], qiE['blue-ma'], qiE['blue-xiang'], qiE['blue-shi'], qiE['blue-jiang'], qiE['blue-jiang'], qiE['blue-xiang'], qiE['blue-ma'], qiE['blue-ju']],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, qiE['blue-pao'], 0, 0, 0, 0, 0, qiE['blue-pao'], 0],
+      [qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing']],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing']],
+      [0, qiE['red-pao'], 0, 0, 0, 0, 0, qiE['red-pao'], 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [qiE['red-ju'], qiE['red-ma'], qiE['red-xiang'], qiE['red-shi'], qiE['red-jiang'], qiE['red-jiang'], qiE['red-xiang'], qiE['red-ma'], qiE['red-ju']],
+    ]
+
+    this.addMsg('红方回合')
+
+    this.addEvent()
   }
 
-})
+  addEvent () {
+    let self = this
+    self.qiAll.forEach((ele) => {
+      if (ele.classList.toString() !== 'qi') {
+        const x = ele.getAttribute('x') / 10
+        const y = ele.getAttribute('y') / 10
+        switch (this.fixedSpace[y][x]) {/* camp阵营 红色为0  黑色为1 */
+          case qiE["blue-bing"]:
+            self.space[x][y] = new Bing(ele, self.space, 1)
+            break;
+          case qiE["blue-pao"]:
+            self.space[x][y] = new Pao(ele, self.space, 1)
+            break;
+          case qiE["blue-ju"]:
+            self.space[x][y] = new Ju(ele, self.space, 1)
+            break;
+          case qiE["blue-ma"]:
+            self.space[x][y] = new Ma(ele, self.space, 1)
+            break;
+          case qiE["blue-xiang"]:
+            self.space[x][y] = new Xiang(ele, self.space, 1)
+            break;
+          case qiE["blue-shi"]:
+            self.space[x][y] = new Shi(ele, self.space, 1)
+            break;
+          case qiE["blue-jiang"]:
+            self.space[x][y] = new Jiang(ele, self.space, 1)
+            break;
+          case qiE["red-bing"]:
+            self.space[x][y] = new Bing(ele, self.space, 0)
+            break;
+          case qiE["red-pao"]:
+            self.space[x][y] = new Pao(ele, self.space, 0)
+            break;
+          case qiE["red-ju"]:
+            self.space[x][y] = new Ju(ele, self.space, 0)
+            break;
+          case qiE["red-ma"]:
+            self.space[x][y] = new Ma(ele, self.space, 0)
+            break;
+          case qiE["red-xiang"]:
+            self.space[x][y] = new Xiang(ele, self.space, 0)
+            break;
+          case qiE["red-shi"]:
+            self.space[x][y] = new Shi(ele, self.space, 0)
+            break;
+          case qiE["red-jiang"]:
+            self.space[x][y] = new Jiang(ele, self.space, 0)
+            break;
+        }
+        ele.addEventListener('click', (e) => {
+          const targetQi = self.space[e.target.getAttribute('x') / 10][e.target.getAttribute('y') / 10]
+          if (self.currentQi === null) {
+            if (self.currentCamp === targetQi.camp) {
+              self.currentQi = targetQi
+              targetQi.ele.classList.add('selected')
+            }
+          } else if (self.currentCamp === targetQi.camp) {
+            self.currentQi.ele.classList.remove('selected')
+            self.currentQi = targetQi
+            targetQi.ele.classList.add('selected')
+          } else if (self.currentCamp !== targetQi.camp) {
+            if (self.currentQi.canMove(targetQi.x, targetQi.y)) {
+              let msg = ''
+              if (self.currentQi.camp === 0) {
+                msg += '红棋：' + self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ') 吃 黑棋: ' + targetQi.name + '(' + targetQi.x + ',' + targetQi.y + ')'
+              } else {
+                msg += '黑棋：' + self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ') 吃 红棋: ' + targetQi.name + '(' + targetQi.x + ',' + targetQi.y + ')'
+              }
+              self.addMsg(msg)
+
+              if (targetQi.name === '将') {
+                if (targetQi.camp === 0) {
+                  msg = '红方失败'
+                } else {
+                  msg = '黑方失败'
+                }
+                self.addMsg(msg)
+                if (confirm('结束!' + self.getMsg()) + '是否重新开始？') {
+                  window.location.href = window.location.href
+                }
+              }
+              self.currentQi.ele.classList.remove('selected')
+              self.currentQi.move(targetQi.x, targetQi.y)
+              self.currentQi = null
+              self.changeCamp()
+            }
+          }
+        })
+      } else {
+        ele.addEventListener('click', (e) => {
+          if (self.currentQi) {
+            if (self.currentQi.canMove(e.target.getAttribute('x') / 10, e.target.getAttribute('y') / 10)) {
+              let msg = ''
+              if (self.currentQi.camp === 0) {
+                msg += '红棋：' + self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ')=>'
+              } else {
+                msg += '黑棋：' + self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ')=>'
+              }
+              self.currentQi.move(e.target.getAttribute('x') / 10, e.target.getAttribute('y') / 10)
+              if (self.currentQi.camp === 0) {
+                msg += self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ')'
+              } else {
+                msg += self.currentQi.name + ' (' + self.currentQi.x + ',' + self.currentQi.x + ')'
+              }
+              self.currentQi.ele.classList.remove('selected')
+              self.currentQi = null
+              self.addMsg(msg)
+              self.changeCamp()
+            }
+          }
+        })
+        ele.addEventListener('mouseenter', () => {
+          ele.setAttribute('opacity', 0.5)
+        })
+        ele.addEventListener('mouseleave', () => {
+          ele.setAttribute('opacity', 0)
+        })
+      }
+
+    })
+  }
+  changeCamp () {
+    this.currentCamp === 0 ? this.currentCamp = 1 : this.currentCamp = 0
+    if (this.currentCamp === 0) {
+      this.addMsg('红方回合')
+    } else {
+      this.addMsg('黑方回合')
+    }
+
+  }
+  addMsg (msg) {
+    this.msgEle.innerHTML = this.msgEle.innerHTML + "<br> " + msg
+  }
+  getMsg () {
+    return this.msgEle.innerText
+  }
+}
 
 
-allx
+
+c = new GameCtr()
+
+
+
+
+

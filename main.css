@@ -5,3 +5,13 @@
 .qi {
   cursor: pointer;
 }
+
+#msg {
+  position: fixed;
+  left: 0;
+  height: 0;
+  overflow-y: scroll;
+  width: 40vh;
+  height: 30vh;
+  font-size: 30px;
+}
