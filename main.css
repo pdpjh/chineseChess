@@ -1,0 +1,7 @@
+.selected {
+  filter: brightness(250%);
+}
+
+.qi {
+  cursor: pointer;
+}

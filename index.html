@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<body style="display: flex;justify-content: center;">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width='90vh' height='100vh' viewbox="0 0 90 100" class="game">
+
+    <rect x="00" y="00" width="90" height="100" style="fill:rgb(194, 94, 0);" />
+    <rect x="05" y="05" width="80" height="90" style="fill:rgb(194, 94, 0);stroke:#000;stroke-width:1;" />
+
+
+    <!-- 横线 -->
+    <line x1="05" y1="15" x2="85" y2="15" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="25" x2="85" y2="25" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="35" x2="85" y2="35" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="45" x2="85" y2="45" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="55" x2="85" y2="55" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="65" x2="85" y2="65" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="75" x2="85" y2="75" style="stroke:#000;stroke-width:.5" />
+    <line x1="05" y1="85" x2="85" y2="85" style="stroke:#000;stroke-width:.5" />
+    <!-- 竖线 -->
+    <line x1="15" y1="05" x2="15" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="25" y1="05" x2="25" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="35" y1="05" x2="35" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="45" y1="05" x2="45" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="55" y1="05" x2="55" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="65" y1="05" x2="65" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="75" y1="05" x2="75" y2="95" style="stroke:#000;stroke-width:.5" />
+    <line x1="85" y1="05" x2="85" y2="95" style="stroke:#000;stroke-width:.5" />
+    <!-- 河 -->
+    <rect x="05" y="45" width="80" height="10" style="fill:rgb(194, 94, 1);stroke:#000;stroke-width:.5;" />
+    <text x="15" y="53" style="fill:'black';font-size:8;user-select:'none'">汉界</text>
+    <text x="55" y="53" style="fill:'black';font-size:8;user-select:'none'">楚河</text>
+
+    <!-- 将军区域 -->
+    <line x1="35" y1="05" x2="55" y2="25" style="stroke:#000;stroke-width:.5" />
+    <line x1="55" y1="05" x2="35" y2="25" style="stroke:#000;stroke-width:.5" />
+    <line x1="35" y1="95" x2="55" y2="75" style="stroke:#000;stroke-width:.5" />
+    <line x1="35" y1="75" x2="55" y2="95" style="stroke:#000;stroke-width:.5" />
+    <!-- 棋子 -->
+
+    <!-- #region 棋子定位 -->
+    <image xlink:href="./img/black.png" x="80" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="80" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="70" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="60" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="50" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="40" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="30" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="20" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="10" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="90" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="80" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="70" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="60" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="50" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="40" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="30" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="20" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="10" width="10" height="10" opacity="0" class="qi"></image>
+    <image xlink:href="./img/black.png" x="0" y="0" width="10" height="10" opacity="0" class="qi"></image>
+    <!-- #endregion -->
+    <!-- 黑兵 -->
+    <image xlink:href="./img/blue-bing.gif" x="0" y="30" height="10" width="10" class="blue-bing qi " />
+    <image xlink:href="./img/blue-bing.gif" x="20" y="30" height="10" width="10" class="blue-bing qi" />
+    <image xlink:href="./img/blue-bing.gif" x="40" y="30" height="10" width="10" class="blue-bing qi" />
+    <image xlink:href="./img/blue-bing.gif" x="60" y="30" height="10" width="10" class="blue-bing qi" />
+    <image xlink:href="./img/blue-bing.gif" x="80" y="30" height="10" width="10" class="blue-bing qi" />
+    <!-- 红兵 -->
+    <image xlink:href="./img/red-bing.gif" x="0" y="60" height="10" width="10" class="red-bing qi " />
+    <image xlink:href="./img/red-bing.gif" x="20" y="60" height="10" width="10" class="red-bing qi" />
+    <image xlink:href="./img/red-bing.gif" x="40" y="60" height="10" width="10" class="red-bing qi" />
+    <image xlink:href="./img/red-bing.gif" x="60" y="60" height="10" width="10" class="red-bing qi" />
+    <image xlink:href="./img/red-bing.gif" x="80" y="60" height="10" width="10" class="red-bing qi" />
+    <!-- 黑炮兵 --> qi
+    <image xlink:href="./img/blue-pao.gif" x="10" y="20" height="10" width="10" class="blue-pao qi" />
+    <image xlink:href="./img/blue-pao.gif" x="70" y="20" height="10" width="10" class="blue-pao qi" />
+    <!-- 红炮兵 --> qi
+    <image xlink:href="./img/red-pao.gif" x="10" y="70" height="10" width="10" class="red-pao qi" />
+    <image xlink:href="./img/red-pao.gif" x="70" y="70" height="10" width="10" class="red-pao qi" />
+    <!-- 黑车 -->
+    <image xlink:href="./img/blue-ju.gif" x="0" y="00" height="10" width="10" class="blue-ju qi" />
+    <image xlink:href="./img/blue-ju.gif" x="80" y="00" height="10" width="10" class="blue-ju qi" />
+    <!-- 红车 -->
+    <image xlink:href="./img/red-ju.gif" x="0" y="90" height="10" width="10" class="red-ju qi" />
+    <image xlink:href="./img/red-ju.gif" x="80" y="90" height="10" width="10" class="red-ju qi" />
+    <!-- 黑马 -->
+    <image xlink:href="./img/blue-ma.gif" x="10" y="00" height="10" width="10" class="blue-ma qi" />
+    <image xlink:href="./img/blue-ma.gif" x="70" y="00" height="10" width="10" class="blue-ma qi" />
+    <!-- 红马 -->
+    <image xlink:href="./img/red-ma.gif" x="10" y="90" height="10" width="10" class="red-ma qi" />
+    <image xlink:href="./img/red-ma.gif" x="70" y="90" height="10" width="10" class="red-ma qi" />
+    <!-- 黑象 -->
+    <image xlink:href="./img/blue-xiang.gif" x="20" y="00" height="10" width="10" class="blue-xiang qi" />
+    <image xlink:href="./img/blue-xiang.gif" x="60" y="00" height="10" width="10" class="blue-xiang qi" />
+    <!-- 红象 -->
+    <image xlink:href="./img/red-xiang.gif" x="20" y="90" height="10" width="10" class="red-xiang qi" />
+    <image xlink:href="./img/red-xiang.gif" x="60" y="90" height="10" width="10" class="red-xiang qi" />
+    <!-- 黑士 -->
+    <image xlink:href="./img/blue-shi.gif" x="30" y="00" height="10" width="10" class="blue-shi qi" />
+    <image xlink:href="./img/blue-shi.gif" x="50" y="00" height="10" width="10" class="blue-shi qi" />
+    <!-- 红士 -->
+    <image xlink:href="./img/red-shi.gif" x="30" y="90" height="10" width="10" class="red-shi qi" />
+    <image xlink:href="./img/red-shi.gif" x="50" y="90" height="10" width="10" class="red-shi qi" />
+    <!-- 黑将 -->
+    <image xlink:href="./img/blue-jiang.gif" x="40" y="00" height="10" width="10" class="blue-jiang qi" />
+    <!-- 红将 -->
+    <image xlink:href="./img/red-jiang.gif" x="40" y="90" height="10" width="10" class="red-jiang qi" />
+
+
+  </svg>
+  <script src="./main.js"></script>
+  <link rel="stylesheet" href="./main.css">
+</body>
+
+</html>
