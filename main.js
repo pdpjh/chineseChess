@@ -61,8 +61,9 @@ class Qi {
 class Ju extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '车'
+    this.name = Ju.name
   }
+  static name = '车'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -97,9 +98,9 @@ class Ju extends Qi {
 class Xiang extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '象'
-
+    this.name = Xiang.name
   }
+  static name = '象'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -142,9 +143,10 @@ class Xiang extends Qi {
 class Ma extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '马'
+    this.name = Ma.name
 
   }
+  static name = '马'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -168,9 +170,9 @@ class Ma extends Qi {
 class Shi extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '士'
-
+    this.name = Shi.name
   }
+  static name = '士'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -190,14 +192,26 @@ class Shi extends Qi {
 class Jiang extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '将'
-
+    this.name = Jiang.name
   }
+  static name = '将'
+
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
     }
-    //判断目标位置是否为士的可移动位置  
+    //判断将吃将
+    if (this.space[x][y].name === Jiang.name) {
+      let min, max
+      if (this.y < y) { min = this.y, max = y } else { min = y, max = this.y }
+      for (min++; min < max; min++) {
+        if (this.space[x][min] !== 0) {
+          return false
+        }
+      }
+      return true
+    }
+    //判断目标位置是否为将的可移动位置  
     if (this.camp === 0 && x >= 3 && x <= 5 && y >= 7 && y <= 9 && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) { //(3,9) (5,7)
       return true
     } else if (this.camp === 1 && x >= 3 && x <= 5 && y >= 0 && y <= 2 && (Math.abs(this.x - x) + Math.abs(this.y - y)) === 1) { // (3,0) (5,2)
@@ -211,9 +225,8 @@ class Jiang extends Qi {
 class Pao extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '炮'
-
   }
+  static name = '炮'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -278,9 +291,9 @@ class Bing extends Qi {
 
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
     super(ele, space, camp)
-    this.name = '兵'
 
   }
+  static name = '兵'
   canMove (x, y) {
     if (!this.canMoveFixed(x, y)) {
       return false
@@ -510,7 +523,7 @@ class GameCtr {
 
 
 
-c = new GameCtr()
+const gameCtr = new GameCtr()
 
 
 
