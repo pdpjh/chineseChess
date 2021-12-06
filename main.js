@@ -352,7 +352,7 @@ class GameCtr {
     }
     //初始期盼布局
     this.fixedSpace = [
-      [qiE['blue-ju'], qiE['blue-ma'], qiE['blue-xiang'], qiE['blue-shi'], qiE['blue-jiang'], qiE['blue-jiang'], qiE['blue-xiang'], qiE['blue-ma'], qiE['blue-ju']],
+      [qiE['blue-ju'], qiE['blue-ma'], qiE['blue-xiang'], qiE['blue-shi'], qiE['blue-jiang'], qiE['blue-shi'], qiE['blue-xiang'], qiE['blue-ma'], qiE['blue-ju']],
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
       [0, qiE['blue-pao'], 0, 0, 0, 0, 0, qiE['blue-pao'], 0],
       [qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing']],
@@ -361,7 +361,7 @@ class GameCtr {
       [qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing']],
       [0, qiE['red-pao'], 0, 0, 0, 0, 0, qiE['red-pao'], 0],
       [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [qiE['red-ju'], qiE['red-ma'], qiE['red-xiang'], qiE['red-shi'], qiE['red-jiang'], qiE['red-jiang'], qiE['red-xiang'], qiE['red-ma'], qiE['red-ju']],
+      [qiE['red-ju'], qiE['red-ma'], qiE['red-xiang'], qiE['red-shi'], qiE['red-jiang'], qiE['red-shi'], qiE['red-xiang'], qiE['red-ma'], qiE['red-ju']],
     ]
 
     this.addMsg('红方回合')
