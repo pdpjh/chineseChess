@@ -1,10 +1,11 @@
 class Qi {
-  constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
+  constructor(ele, space, camp, name) {  /* camp阵营 红色为0  黑色为1 */
     this.ele = ele  //棋子的dom对象
     this.x = parseInt(ele.getAttribute('x') / 10)
     this.y = parseInt(ele.getAttribute('y') / 10)
     this.space = space //棋子分布空间数组
     this.camp = camp //阵营
+    this.name = name
   }
   /* x,y是以space数组的坐标 */
   /* x，y将要移动位置  */
@@ -60,8 +61,7 @@ class Qi {
 
 class Ju extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
-    this.name = Ju.name
+    super(ele, space, camp, Ju.name)
   }
   static name = '车'
   canMove (x, y) {
@@ -97,8 +97,7 @@ class Ju extends Qi {
 
 class Xiang extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
-    this.name = Xiang.name
+    super(ele, space, camp, Xiang.name)
   }
   static name = '象'
   canMove (x, y) {
@@ -142,8 +141,7 @@ class Xiang extends Qi {
 
 class Ma extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
-    this.name = Ma.name
+    super(ele, space, camp, Ma.name)
 
   }
   static name = '马'
@@ -169,8 +167,7 @@ class Ma extends Qi {
 
 class Shi extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
-    this.name = Shi.name
+    super(ele, space, camp, Shi.name)
   }
   static name = '士'
   canMove (x, y) {
@@ -224,7 +221,7 @@ class Jiang extends Qi {
 
 class Pao extends Qi {
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
+    super(ele, space, camp, Pao.name)
   }
   static name = '炮'
   canMove (x, y) {
@@ -290,7 +287,7 @@ class Pao extends Qi {
 class Bing extends Qi {
 
   constructor(ele, space, camp) {  /* camp阵营 红色为0  黑色为1 */
-    super(ele, space, camp)
+    super(ele, space, camp, Bing.name)
 
   }
   static name = '兵'
@@ -356,10 +353,13 @@ const qiE = {
 class GameCtr {
   constructor() {
     this.msgEle = document.getElementById('msg')
+    this.msgEle.innerText = '红方回合'
+
     this.qiAll = Array.from(document.getElementsByClassName('qi'))
     this.currentQi = null // 当前操作棋子对象 
     this.currentCamp = 0 // camp阵营 红色为0  黑色为1  当前操作阵营
     this.space = new Array(9) //棋子空间数组
+    this.msg = ''
     for (let i = 0; i < this.space.length; i++) {
       this.space[i] = new Array(9).fill(0)
     }
@@ -507,17 +507,18 @@ class GameCtr {
   changeCamp () {
     this.currentCamp === 0 ? this.currentCamp = 1 : this.currentCamp = 0
     if (this.currentCamp === 0) {
-      this.addMsg('红方回合')
+      this.msgEle.innerText = '红方回合'
     } else {
-      this.addMsg('黑方回合')
+      this.msgEle.innerText = '黑方回合'
+
     }
 
   }
   addMsg (msg) {
-    this.msgEle.innerHTML = this.msgEle.innerHTML + "<br> " + msg
+    this.msg += "    " + msg
   }
   getMsg () {
-    return this.msgEle.innerText
+    return this.msg
   }
 }
 
