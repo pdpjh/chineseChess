@@ -11,9 +11,6 @@ class Qi {
   /* x，y将要移动位置  */
   move (x, y) {
     this.space[this.x][this.y] = 0
-    if (this.space[x][y] !== 0) {
-      this.space[x][y].remove()
-    }
     const k = new KeyframeEffect(this.ele, [
       {
         x: this.x * 10,
@@ -28,6 +25,9 @@ class Qi {
     )
     const anim = new Animation(k)
     anim.onfinish = () => {
+      if (this.space[x][y] !== 0) {
+        this.space[x][y].remove()
+      }
       this.ele.setAttribute('x', x * 10)
       this.ele.setAttribute('y', y * 10)
       this.x = x
