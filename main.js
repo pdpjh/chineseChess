@@ -380,32 +380,30 @@ class GameCtr {
     for (let i = 0; i < this.space.length; i++) {
       this.space[i] = new Array(9).fill(0)
     }
-    //初始期盼布局
-    this.fixedSpace = [
-      [qiE['blue-ju'], qiE['blue-ma'], qiE['blue-xiang'], qiE['blue-shi'], qiE['blue-jiang'], qiE['blue-shi'], qiE['blue-xiang'], qiE['blue-ma'], qiE['blue-ju']],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, qiE['blue-pao'], 0, 0, 0, 0, 0, qiE['blue-pao'], 0],
-      [qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing']],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing']],
-      [0, qiE['red-pao'], 0, 0, 0, 0, 0, qiE['red-pao'], 0],
-      [0, 0, 0, 0, 0, 0, 0, 0, 0],
-      [qiE['red-ju'], qiE['red-ma'], qiE['red-xiang'], qiE['red-shi'], qiE['red-jiang'], qiE['red-shi'], qiE['red-xiang'], qiE['red-ma'], qiE['red-ju']],
-    ]
-
     this.addMsg('红方回合')
 
     this.addEvent()
   }
-
+  //初始期盼布局
+  static fixedSpace = [
+    [qiE['blue-ju'], qiE['blue-ma'], qiE['blue-xiang'], qiE['blue-shi'], qiE['blue-jiang'], qiE['blue-shi'], qiE['blue-xiang'], qiE['blue-ma'], qiE['blue-ju']],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, qiE['blue-pao'], 0, 0, 0, 0, 0, qiE['blue-pao'], 0],
+    [qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing'], 0, qiE['blue-bing']],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing'], 0, qiE['red-bing']],
+    [0, qiE['red-pao'], 0, 0, 0, 0, 0, qiE['red-pao'], 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [qiE['red-ju'], qiE['red-ma'], qiE['red-xiang'], qiE['red-shi'], qiE['red-jiang'], qiE['red-shi'], qiE['red-xiang'], qiE['red-ma'], qiE['red-ju']],
+  ]
   addEvent () {
     let self = this
     self.qiAll.forEach((ele) => {
       if (ele.classList.toString() !== 'qi') {
         const x = ele.getAttribute('x') / 10
         const y = ele.getAttribute('y') / 10
-        switch (this.fixedSpace[y][x]) {/* camp阵营 红色为0  黑色为1 */
+        switch (GameCtr.fixedSpace[y][x]) {/* camp阵营 红色为0  黑色为1 */
           case qiE["blue-bing"]:
             self.space[x][y] = new Bing(ele, self.space, 1)
             break;
