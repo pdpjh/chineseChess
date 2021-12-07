@@ -14,11 +14,28 @@ class Qi {
     if (this.space[x][y] !== 0) {
       this.space[x][y].remove()
     }
-    this.ele.setAttribute('x', x * 10)
-    this.ele.setAttribute('y', y * 10)
-    this.x = x
-    this.y = y
-    this.space[x][y] = this
+    const k = new KeyframeEffect(this.ele, [
+      {
+        x: this.x * 10,
+        y: this.y * 10
+      },
+      {
+        x: x * 10,
+        y: y * 10
+      }
+    ],
+      { duration: 300, easing: 'ease' }
+    )
+    const anim = new Animation(k)
+    anim.onfinish = () => {
+      this.ele.setAttribute('x', x * 10)
+      this.ele.setAttribute('y', y * 10)
+      this.x = x
+      this.y = y
+      this.space[x][y] = this
+    }
+    anim.play()
+
   }
 
   /*
